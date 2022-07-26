@@ -1,26 +1,44 @@
-<?php
+<?php 
     session_start();
-    $host = "localhost";
-    $user = "root";
-    $password = "";
-    $db = "richpanel_assignment";
-    $conn = mysqli_connect($host,$user,$password,$db);
-    if(!$conn){
-        $conn_error = "There is a connection error!! Please try again!!";
-        die();
+    if(isset($_COOKIE['email']) && isset($_COOKIE['psw'])){
+        $id = $_COOKIE['email'];
+        $ps = $_COOKIE['psw'];
+
+    }else{
+        $id = "";
+        $ps = "";
     }
 
-    if(isset($_POST["login-btn"])){
-        $name = $_POST["name"];
-        $email = $_POST["email"];
-        $psw = $_POST["psw"];
-        $SESSION['name'] = $name;
-        $sql = "select * from userdetails where email = '".$email." 'AND Password = '".$psw."'limit 1";
-        $result = mysqli_query($conn,$sql);
-        if(mysqli_num_rows($result)== 1){
-            echo "<script>alert('User found in database');</script>";
-        }else{
-            echo "<script>alert('User not found in the database');</script>";
-        }
-    }
 ?>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./../CSS/login.css">
+    <title>Richpanel_Assignment</title>
+</head>
+
+<body>
+    <form action="./login_details.php" method = "POST">
+        <div class="container">
+            <h1 style="text-align: center">Login to your account</h1>
+
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" id="email" value = "<?php echo $id?>"required />
+            
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" id="psw" value = "<?php echo $ps?>"required />
+
+            <label>
+                <input type = "checkbox" name = "rememberMe">Remember Me
+            </label>
+            <button type="submit" class="login-btn" name = "login-btn" >Login</button>
+            <p style="text-align: center">
+                New to MyApp <a href="./register.html">Sign Up</a>
+            </p>
+        </div>
+    </form>
+</body>
+
+</html>
