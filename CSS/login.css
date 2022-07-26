@@ -54,6 +54,21 @@ input[type="password"]:focus {
     color:black
 }
 
+.login-btn {
+    background-color: blue;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.login-btn:hover{
+    opacity: 1;
+    color:black
+}
 /* Add a blue text color to links */
 a {
     color: dodgerblue;
