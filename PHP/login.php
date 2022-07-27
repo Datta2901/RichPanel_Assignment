@@ -8,7 +8,6 @@
         $id = "";
         $ps = "";
     }
-
 ?>
 <!DOCTYPE html>
 <html>
