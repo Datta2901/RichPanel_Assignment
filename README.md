@@ -15,5 +15,3 @@
 ![image](Output/Monthly.png)
 
 ![image](Output/Yearly.png)
-
-![image](Output/Stripe.png)
